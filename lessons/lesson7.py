@@ -20,6 +20,12 @@ bitday DATE
 # CREATE - INSERT INTO
 # cursor.execute('''INSERT INTO user VALUES ("beka",49,5,'2003-87-99')''')
 
+def delete_rowid():
+    cursor.execute('''DELETE FROM user WHERE rowid % 2 = 0''')
+
+
+
+
 # UPDATE-UPDATE
 cursor.execute('''UPDATE user SET age=99 WHERE rowid!=2 ''')
 
@@ -32,5 +38,6 @@ for i in a:
     print(i)
 
 
+delete_rowid()
 db.commit()
 db.close()
